@@ -258,15 +258,15 @@ class HanafudaTetris:
     def handle_input(self):
         """入力処理"""
         # 左右移動
-        if pyxel.btnp(pyxel.KEY_LEFT) or pyxel.btnp(pyxel.GAMEPAD1_BUTTON_DPAD_LEFT) and self.falling_x > 0:
+        if (pyxel.btnp(pyxel.KEY_LEFT) or pyxel.btnp(pyxel.GAMEPAD1_BUTTON_DPAD_LEFT)) and self.falling_x > 0:
             if self.can_move(self.falling_x - 1, self.falling_y):
                 self.falling_x -= 1
-        if pyxel.btnp(pyxel.KEY_RIGHT) or pyxel.btnp(pyxel.GAMEPAD1_BUTTON_DPAD_RIGHT) and self.falling_x < self.FIELD_WIDTH - 1:
+        if (pyxel.btnp(pyxel.KEY_RIGHT) or pyxel.btnp(pyxel.GAMEPAD1_BUTTON_DPAD_RIGHT)) and self.falling_x < self.FIELD_WIDTH - 1:
             if self.can_move(self.falling_x + 1, self.falling_y):
                 self.falling_x += 1
         
         # 高速落下
-        if pyxel.btn(pyxel.KEY_DOWN) or pyxel.btn(pyxel.GAMEPAD1_BUTTON_DPAD_DOWN):
+        if (pyxel.btn(pyxel.KEY_DOWN) or pyxel.btn(pyxel.GAMEPAD1_BUTTON_DPAD_DOWN)):
             self.drop_timer = self.drop_speed
         
         # リスタート
