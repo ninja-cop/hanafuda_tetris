@@ -223,7 +223,7 @@ class HanafudaTetris:
                 card['y'] = -self.CARD_HEIGHT
         
         # 入力処理
-        if pyxel.btnp(pyxel.GAMEPAD1_BUTTON_A): #or pyxel.btnp(pyxel.KEY_SPACE):
+        if pyxel.btnp(pyxel.GAMEPAD1_BUTTON_A) or pyxel.btnp(pyxel.KEY_SPACE):
             self.start_game()
     
     def update_game(self):
@@ -270,7 +270,7 @@ class HanafudaTetris:
             self.drop_timer = self.drop_speed
         
         # リスタート
-        if pyxel.btnp(pyxel.GAMEPAD1_BUTTON_A):
+        if pyxel.btnp(pyxel.GAMEPAD1_BUTTON_A) or pyxel.btnp(pyxel.KEY_SPACE):
             self.restart_game()
     
     def can_move(self, x, y):
@@ -561,7 +561,7 @@ class HanafudaTetris:
     
     def update_game_over(self):
         """ゲームオーバー時の更新"""
-        if pyxel.btnp(pyxel.GAMEPAD1_BUTTON_A):
+        if pyxel.btnp(pyxel.GAMEPAD1_BUTTON_A) or pyxel.btnp(pyxel.KEY_SPACE):
             self.restart_game()
             #pyxel.playm(0, )
     
@@ -614,9 +614,9 @@ class HanafudaTetris:
             "",
             "Controls:",
             "L/R: Move   DOWN: Drop",
-            "A: Restart",
+            "A or SPACE: Restart",
             "",
-            "Press A to Start"
+            "Press A or SPACE to Start"
         ]
         
         start_y = 130
@@ -718,7 +718,7 @@ class HanafudaTetris:
         controls = [
             "L/R: Move",
             "DOWN: Drop",
-            "A: Restart"
+            "A or SPACE: Restart"
         ]
         
         for i, text in enumerate(controls):
@@ -741,7 +741,7 @@ class HanafudaTetris:
         
         # リスタート案内
         color = 14 if (pyxel.frame_count // 30) % 2 == 0 else 6
-        pyxel.text(self.WIDTH // 2 - 40, self.HEIGHT // 2 + 20, "Press A to Restart", color)
+        pyxel.text(self.WIDTH // 2 - 50, self.HEIGHT // 2 + 20, "Press A or SPACE to Restart", color)
         
         # 最終成績
         achievements = []
